@@ -1,7 +1,7 @@
-# 🌐 Orbis
+# Orbis
 A snippet that brings Org-mode inspired headings to Obsidian
 
-# 🛠 How to Install
+# How to Install
 
     Copy the snippet into your Obsidian vault:
     Place the .css file in .obsidian/snippets/.
@@ -10,7 +10,7 @@ A snippet that brings Org-mode inspired headings to Obsidian
 
     Enable the snippet from the list.
 
-# 🖼️ Example
+# Example
 
-![Screenshot of the heading snippet](assets/Edit.jpg)
-![Screenshot of the heading snippet](assets/Preview.jpg)
+<img src="assets/Preview.jpg" alt="Screenshot" width="200">
+<img src="assets/Edit.jpg" alt="Screenshot" width="200">
