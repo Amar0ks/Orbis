@@ -12,5 +12,5 @@ A snippet that brings Org-mode inspired headings to Obsidian
 
 # Example
 
-<img src="assets/Preview.jpg" alt="Screenshot" width="200">
-<img src="assets/Edit.jpg" alt="Screenshot" width="200">
+<img src="assets/Preview.jpg" alt="Screenshot" width="300">
+<img src="assets/Edit.jpg" alt="Screenshot" width="300">
