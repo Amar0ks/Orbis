@@ -1,0 +1,144 @@
+:root {
+    /* Icons pro Tiefe */
+    --icon-h1: "◉";     /* Tiefe 0 (Root) */
+    --icon-h2: "○";     /* Tiefe 1 */
+    --icon-h3: "✸";     /* Tiefe 2 */
+    --icon-h4: "▹";     /* Tiefe 3 */
+    --icon-h5: "›";     /* Tiefe 4 */
+    --icon-h6: "⁃";     /* Tiefe 5 */
+    --icon-size:            1.1em;
+    --icon-vertical-shift:  0.05em;
+    /* Inaktive (eingeklappte) Ordner */
+    --opacity-collapsed:    0.6;
+    /* Aktive (ausgeklappte) Ordner Farben pro Tiefe */
+    --color-h1: #d09e88;
+    --color-h2: #e6b89c;
+    --color-h3: #f1c27d;
+    --color-h4: #b7d87c;
+    --color-h5: #7fc8a9;
+    --color-h6: #6a9fb5;
+  }
+  
+  /* 0) Original-SVG-Pfeile/Masks verstecken */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .tree-item-icon.collapse-icon svg,
+  .workspace-leaf-content[data-type="file-explorer"]
+    .tree-item-icon.collapse-icon mask {
+    display: none !important;
+  }
+  
+  /* 1) Collapse-Container sichtbar machen & zentrieren */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .tree-item-icon.collapse-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1.2em !important;
+    height: 1.2em !important;
+    font-size: var(--icon-size) !important;
+    line-height: 1 !important;
+    position: relative !important;
+    top: var(--icon-vertical-shift) !important;
+    margin-inline-end: 0.5em !important;
+  }
+  
+  /* 2a) h1: Tiefe 0 (Root) */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .nav-files-container
+      .tree-item.nav-folder
+        .tree-item-self.nav-folder-title
+          .tree-item-icon.collapse-icon::before {
+    content: var(--icon-h1) !important;
+    opacity: 1 !important;
+    color: var(--color-h1) !important;
+  }
+  
+  /* 2b) h2: Tiefe 1 */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .nav-files-container
+      .tree-item.nav-folder
+        .tree-item-children.nav-folder-children
+          .tree-item.nav-folder
+            .tree-item-self.nav-folder-title
+              .tree-item-icon.collapse-icon::before {
+    content: var(--icon-h2) !important;
+    opacity: 1 !important;
+    color: var(--color-h2) !important;
+  }
+  
+  /* 2c) h3: Tiefe 2 */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .nav-files-container
+      .tree-item.nav-folder
+        .tree-item-children.nav-folder-children
+          .tree-item.nav-folder
+            .tree-item-children.nav-folder-children
+              .tree-item.nav-folder
+                .tree-item-self.nav-folder-title
+                  .tree-item-icon.collapse-icon::before {
+    content: var(--icon-h3) !important;
+    opacity: 1 !important;
+    color: var(--color-h3) !important;
+  }
+  
+  /* 2d) h4: Tiefe 3 */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .nav-files-container
+      .tree-item.nav-folder
+        .tree-item-children.nav-folder-children
+          .tree-item.nav-folder
+            .tree-item-children.nav-folder-children
+              .tree-item.nav-folder
+                .tree-item-children.nav-folder-children
+                  .tree-item.nav-folder
+                    .tree-item-self.nav-folder-title
+                      .tree-item-icon.collapse-icon::before {
+    content: var(--icon-h4) !important;
+    opacity: 1 !important;
+    color: var(--color-h4) !important;
+  }
+  
+  /* 2e) h5: Tiefe 4 */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .nav-files-container
+      .tree-item.nav-folder
+        .tree-item-children.nav-folder-children
+          .tree-item.nav-folder
+            .tree-item-children.nav-folder-children
+              .tree-item.nav-folder
+                .tree-item-children.nav-folder-children
+                  .tree-item.nav-folder
+                    .tree-item-children.nav-folder-children
+                      .tree-item.nav-folder
+                        .tree-item-self.nav-folder-title
+                          .tree-item-icon.collapse-icon::before {
+    content: var(--icon-h5) !important;
+    opacity: 1 !important;
+    color: var(--color-h5) !important;
+  }
+  
+  /* 2f) h6: Tiefe 5 */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .nav-files-container
+      .tree-item.nav-folder
+        .tree-item-children.nav-folder-children
+          .tree-item.nav-folder
+            .tree-item-children.nav-folder-children
+              .tree-item.nav-folder
+                .tree-item-children.nav-folder-children
+                  .tree-item.nav-folder
+                    .tree-item-children.nav-folder-children
+                      .tree-item.nav-folder
+                        .tree-item-self.nav-folder-title
+                          .tree-item-icon.collapse-icon::before {
+    content: var(--icon-h6) !important;
+    opacity: 1 !important;
+    color: var(--color-h6) !important;
+  }
+  
+  /* 3) Eingeklappte Ordner leicht transparent */
+  .workspace-leaf-content[data-type="file-explorer"]
+    .tree-item-icon.collapse-icon.is-collapsed::before {
+    opacity: var(--opacity-collapsed) !important;
+  }
+  
