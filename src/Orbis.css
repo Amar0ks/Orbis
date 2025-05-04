@@ -33,6 +33,35 @@
   --opacity-collapsed: 0.6;
 }
 
+/* Collapse-Button im Edit-Modus – klickbare Fläche erweitern */
+.markdown-source-view.mod-cm6 .collapse-indicator {
+  position: relative;
+  opacity: 0 !important; /* Unsichtbar lassen */
+  z-index: 10;
+}
+
+/* Erweiterte klickbare Fläche */
+.markdown-source-view.mod-cm6 .collapse-indicator::before {
+  content: "->";
+  position: absolute;
+  top: 0;
+  left: -70px; 
+  width: 80px;
+  height: 100%;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+
+.markdown-source-view.mod-cm6 .collapse-indicator::before:hover {
+  background-color: rgba(255, 200, 0, 0.15);
+  border: 1px dashed rgba(255, 200, 0, 0.5);
+}
+
+
 /* Abstände: h1 oben 0, andere Standard */
 h1, .markdown-preview-view h1, .cm-s-obsidian div.HyperMD-header.HyperMD-header-1 {
   margin: 0 0 0.5em !important;
@@ -122,6 +151,7 @@ h6,
   pointer-events: none;
 }
 
+
 /* Collapse-Icons immer sichtbar */
 .markdown-preview-view h1 > .collapse-icon,
 .markdown-preview-view h2 > .collapse-icon,
@@ -164,4 +194,18 @@ h6,
 .markdown-preview-view p {
   margin: 0 0 0.5em !important;
 }
+
+/* nur die "..." */
+
+ .markdown-source-view.mod-cm6 .cm-foldPlaceholder {
+  background-color: var(--background-secondary);
+  color: var(--text-normal);
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid var(--background-modifier-border);
+  opacity: var(--opacity-collapsed);
+}
+
+
 

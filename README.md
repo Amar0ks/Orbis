@@ -1,5 +1,5 @@
 # Orbis
-A snippet that brings Org-mode inspired headings to Obsidian
+A snippet that brings Org-mode inspired headings to Obsidian.
 
 # How to Install
 
