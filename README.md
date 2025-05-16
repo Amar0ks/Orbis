@@ -12,10 +12,10 @@ A snippet that brings Org-mode inspired headings to Obsidian.
 
 # Example
 
-| .                            | .                            | .                            |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| ![](assets/platzhalter1.jpg) | ![](assets/platzhalter2.jpg) | ![](assets/platzhalter3.jpg) |
-| ![](assets/platzhalter4.jpg) | ![](assets/platzhalter5.jpg) | ![](assets/platzhalter6.jpg) |
+| .                       | .                       | .                       |
+| ----------------------- | ----------------------- | ----------------------- |
+| ![](assets/Filetree.jpg) | ![](assets/Headline_a.jpg) | ![](assets/Headline_b.jpg) |
+| ![](assets/Headline_c.jpg) | ![](assets/Overview_a.jpg) | ![](assets/Overview_b.jpg) |
 
 
 
