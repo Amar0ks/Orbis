@@ -14,3 +14,10 @@ A snippet that brings Org-mode inspired headings to Obsidian.
 
 <img src="assets/Preview.jpg" alt="Screenshot" width="300">
 <img src="assets/Edit.jpg" alt="Screenshot" width="300">
+
+
+
+# Not-So-Obvious Features
+
+- **Collapse/expand sections** Click on any heading (e.g., `###`) to fold or unfold that section.
+- **Subtle dividers**   `<hr>` or `---` are rendered with minimal styling, so they can separate text blocks without standing out.

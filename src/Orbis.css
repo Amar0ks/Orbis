@@ -69,9 +69,7 @@ body.theme-dark blockquote {
 }
 
 body.theme-dark blockquote::before {
-  content: "❝";
-  position: absolute;
-  top: 0.1em;
+  content: "❝";  top: 0.1em;
   left: 0.3em;
   font-size: 2em;
   color: rgba(255, 255, 255, 0.15);
@@ -147,49 +145,44 @@ body.theme-light .callout[data-callout="note"] .callout-title {
 
 
 
+/* ===========================
+   <hr>
+   =========================== */
+
+
+   body.theme-light .markdown-preview-view hr,
+   body.theme-light .cm-content hr {
+     border: none;
+     height: 1px;
+     background: linear-gradient(to right,
+     rgba(241, 194, 125, 0.4) 0%,
+     rgba(241, 194, 125, 0.2) 25%,
+     rgba(241, 194, 125, 0.15) 40%,
+     transparent 60%);
+     margin: 0.5em 0;
+     opacity: 0.4;
+   }
+   
+   body.theme-dark .markdown-preview-view hr,
+   body.theme-dark .cm-content hr {
+     border: none;
+     height: 1px;
+     background: linear-gradient(to right, 
+     rgba(241, 194, 125, 0.4) 0%,
+     rgba(241, 194, 125, 0.2) 25%,
+     rgba(241, 194, 125, 0.15) 40%,
+      transparent 60%);
+     margin: 0.5em 0;
+     opacity: 0.4;
+   }
+   
 
 
 
-/* Collapse-Button im Edit-Modus – klickbare Fläche erweitern */
-.markdown-source-view.mod-cm6 .collapse-indicator {
-  position: relative;
-  opacity: 0 !important; /* Unsichtbar lassen */
-  z-index: 10;
-}
+/* ===========================
+   preview-view
+   =========================== */
 
-/* Erweiterte klickbare Fläche */
-.markdown-source-view.mod-cm6 .collapse-indicator::before {
-  content: "->";
-  position: absolute;
-  top: 0;
-  left: -70px; 
-  width: 80px;
-  height: 100%;
-  display: block;
-  pointer-events: auto;
-  cursor: pointer;
-  box-sizing: border-box;
-  background-color: transparent;
-}
-
-
-.markdown-source-view.mod-cm6 .collapse-indicator::before:hover {
-  background-color: rgba(255, 200, 0, 0.15);
-  border: 1px dashed rgba(255, 200, 0, 0.5);
-}
-
-
-/* Abstände: h1 oben 0, andere Standard */
-h1, .markdown-preview-view h1, .cm-s-obsidian div.HyperMD-header.HyperMD-header-1 {
-  margin: 0 0 0.5em !important;
-}
-
-h2, h3, h4, h5, h6,
-.markdown-preview-view h2, .markdown-preview-view h3,
-.markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
-.cm-s-obsidian .HyperMD-header:not(.HyperMD-header-1) {
-  margin: 1.5em 0 0.5em !important;
-}
 
 /* Gemeinsame Basis-Stile Edit & Preview */
 h1, h2, h3, h4, h5, h6,
@@ -253,25 +246,6 @@ h6,
   margin-bottom: 0.5em !important;
 }
 
-/* Source-View Marker */
-.markdown-source-view.mod-cm6 .cm-formatting-header {
-  position: absolute;
-  left: -6em;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5em;
-  height: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  visibility: visible;
-  pointer-events: none;
-}
-
-
-
-
-
 /* Collapse-Icons immer sichtbar */
 .markdown-preview-view h1 > .collapse-icon,
 .markdown-preview-view h2 > .collapse-icon,
@@ -301,22 +275,68 @@ h6,
 .markdown-preview-view h5 > .collapse-icon::before { content: var(--icon-h5); color: var(--color-h5); font-size: 1.25em; font-weight: bold; }
 .markdown-preview-view h6 > .collapse-icon::before { content: var(--icon-h6); color: var(--color-h6); font-size: 1.25em; font-weight: bold; }
 
-/* Collapsed-Zustand, gleiche Opacity */
+/* 1. Geklapptes Heading leicht transparent */
 .markdown-preview-view .is-collapsed h1,
 .markdown-preview-view .is-collapsed h2,
 .markdown-preview-view .is-collapsed h3,
 .markdown-preview-view .is-collapsed h4,
 .markdown-preview-view .is-collapsed h5,
-.markdown-preview-view .is-collapsed h6 { opacity: var(--opacity-collapsed); }
-.markdown-preview-view .is-collapsed .collapse-icon::before { opacity: var(--opacity-collapsed); }
+.markdown-preview-view .is-collapsed h6 {
+  opacity: var(--opacity-collapsed);
+  position: relative;
+  padding-right: 2em; /* Platz für das Icon */
+}
 
-/* Preview paragraph margins, um Springen zu verhindern */
-.markdown-preview-view p {
-  margin: 0 0 0.5em !important;
+
+/* [...] in der preview */
+.markdown-preview-view .is-collapsed h1::after,
+.markdown-preview-view .is-collapsed h2::after,
+.markdown-preview-view .is-collapsed h3::after,
+.markdown-preview-view .is-collapsed h4::after,
+.markdown-preview-view .is-collapsed h5::after,
+.markdown-preview-view .is-collapsed h6::after {
+  content: "…";
+  display: inline-block;
+  margin-left: 0.5em;
+  margin-bottom: 2px;
+  background-color: var(--background-secondary);
+  color: var(--text-normal);
+  padding: 0px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid var(--background-modifier-border);
+  opacity: var(--opacity-collapsed);
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+/* komisch hoher Abstand bei Listen */
+.markdown-preview-view ul {
+  margin-block-start: -6px;
+}
+
+
+/* ===========================
+   source-view
+   =========================== */
+
+
+/* Source-View Marker */
+.markdown-source-view.mod-cm6 .cm-formatting-header {
+  position: absolute;
+  left: -6em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  visibility: visible;
+  pointer-events: none;
 }
 
 /* nur die "..." */
-
  .markdown-source-view.mod-cm6 .cm-foldPlaceholder {
   background-color: var(--background-secondary);
   color: var(--text-normal);
@@ -326,6 +346,65 @@ h6,
   border: 1px solid var(--background-modifier-border);
   opacity: var(--opacity-collapsed);
 }
+
+
+
+/* Collapse-Button */
+.markdown-source-view.mod-cm6 .collapse-indicator {
+  position: relative;
+  opacity: 0 !important; /* Unsichtbar lassen */
+  z-index: 10;
+}
+
+/* Erweiterte klickbare Fläche */
+.markdown-source-view.mod-cm6 .collapse-indicator::before {
+  content: "->";
+  position: absolute;
+  top: 0;
+  left: -70px; 
+  width: 80px;
+  height: 100%;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+
+.cm-line span.cm-tag {
+  color: #aaa !important;
+  opacity: 0.2 !important;
+}
+
+
+/* ===========================
+    TEST
+
+- Problem: Modus wechsel - starkes springen. Außer wenn man oben ist
+- letzt Zeile kann wegen margin nicht angeklickt werden
+   =========================== */
+
+
+
+ h1, .markdown-preview-view h1, .cm-s-obsidian div.HyperMD-header.HyperMD-header-1 {
+  margin: 0 0 0.5em !important;
+}
+h2, h3, h4, h5, h6,
+.markdown-preview-view h2, .markdown-preview-view h3,
+.markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
+.cm-s-obsidian .HyperMD-header:not(.HyperMD-header-1) {
+  margin: 1.5em 0 0.5em !important;
+} 
+
+.markdown-preview-view p {
+  margin: 0 0 0.5em !important;
+}
+
+
+
+
+
 
 
 
