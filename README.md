@@ -12,8 +12,11 @@ A snippet that brings Org-mode inspired headings to Obsidian.
 
 # Example
 
-<img src="assets/Preview.jpg" alt="Screenshot" width="300">
-<img src="assets/Edit.jpg" alt="Screenshot" width="300">
+| .                            | .                            | .                            |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| ![](assets/platzhalter1.jpg) | ![](assets/platzhalter2.jpg) | ![](assets/platzhalter3.jpg) |
+| ![](assets/platzhalter4.jpg) | ![](assets/platzhalter5.jpg) | ![](assets/platzhalter6.jpg) |
+
 
 
 
@@ -21,3 +24,8 @@ A snippet that brings Org-mode inspired headings to Obsidian.
 
 - **Collapse/expand sections** Click on any heading (e.g., `###`) to fold or unfold that section.
 - **Subtle dividers**   `<hr>` or `---` are rendered with minimal styling, so they can separate text blocks without standing out.
+
+
+# Known Issues:
+Due to margin changes, the end of the document is sometimes not clickable.
+Workaround: Insert blank lines.
